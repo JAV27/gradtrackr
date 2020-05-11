@@ -4,9 +4,7 @@
   "description": "Track your graduation requirements",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon app",
-    "start": "node app"
+    "dev": "nodemon app"
   },
   "repository": {
     "type": "git",
@@ -20,7 +18,9 @@
   "homepage": "https://github.com/JAV27/gradtrackr#readme",
   "dependencies": {
     "ejs": "^3.1.2",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "passport": "^0.4.1",
+    "passport-google-oauth": "^2.0.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.3"

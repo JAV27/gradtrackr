@@ -17,8 +17,10 @@
   },
   "homepage": "https://github.com/JAV27/gradtrackr#readme",
   "dependencies": {
+    "cookie-session": "^1.4.0",
     "ejs": "^3.1.2",
     "express": "^4.17.1",
+    "mongoose": "^5.9.13",
     "passport": "^0.4.1",
     "passport-google-oauth": "^2.0.0"
   },

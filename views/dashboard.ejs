@@ -1,3 +1,16 @@
-Welcome <%= username %>
+Welcome <%= user.username %>
 <br>
+Requirements: <%= user.requirements[0].name %>
+
+<form method="POST" action="/dashboard">
+    <label for="major">Major: </label>
+    <select name="major">
+        <option default value="None" <%= user.major === 'None' ? 'selected' : ''%>>None</option>
+        <option value="Computer Science" <%= user.major === 'Computer Science' ? 'selected' : ''%>>Computer Science</option>
+    </select>
+    <br>
+    <button type="submit" value="Submit">Save Changes</button>
+</form>
+
+<hr>
 <a href="/auth/logout">Logout</a>

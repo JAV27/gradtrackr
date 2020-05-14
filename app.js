@@ -8,7 +8,7 @@ const passportSetup = require('./config/passportSetup');
 const mongoose = require('mongoose');
 const keys = require('./config/keys');
 const coookieSession = require('cookie-session');
-const passport = require('passport');
+const passport = require('passport'); 
 const PORT = 3000;
 
 // load view engine

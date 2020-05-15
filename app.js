@@ -9,6 +9,7 @@ const mongoose = require('mongoose');
 const keys = require('./config/keys');
 const coookieSession = require('cookie-session');
 const passport = require('passport'); 
+const bodyParser = require('body-parser');
 const PORT = 3000;
 
 // load view engine
@@ -24,6 +25,7 @@ app.use(coookieSession({
 // initialize passport
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Mongoose deprecation fixes
 mongoose.set('useNewUrlParser', true);

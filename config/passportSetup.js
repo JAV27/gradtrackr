@@ -2,7 +2,7 @@ const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const keys = require('./keys');
 const User = require('../models/User');
-const Requirements = require('../models/Requirement');
+const RequirementGroup = require('../models/RequirementGroup');
 
 passport.serializeUser((user, done) => {
     done(null, user.id);
@@ -28,25 +28,16 @@ passport.use(
                 done(null, currentUser);
             } else {
                 //Get University Requirements
-                Requirements.findOne({name: "University Requirements"}).then((newRequirement) => {
-                    return newRequirement.class_requirements.map((e) => {
+                RequirementGroup.findOne({name: "University Requirements"}).then((newRequirementGroup) => {
+                    return newRequirementGroup.requirements.map((e) => {
                         return {
                             fullName: e.fullName,
                             abbr: e.abbr,
-                            status: [
-                                {
-                                    status_number: 0,
-                                    classes_satisfying: 0
-                                },
-                                {
-                                    status_number: 1,
-                                    classes_satisfying: 0
-                                },
-                                {
-                                    status_number: 2,
-                                    classes_satisfying: 0
-                                }
-                            ]
+                            status: {
+                                needToTake: 0,
+                                planToTake: 0,
+                                taken: 0
+                            }
                         }
                     });
                 }).then((mappedRequirements) => {
@@ -58,7 +49,7 @@ passport.use(
                         requirements: [
                             {
                                 name: "University Requirements",
-                                class_requirements: mappedRequirements
+                                active_requirements: mappedRequirements
                             }                   
                         ]
                     }).save().then((newUser) => { 

@@ -11,16 +11,15 @@ const userSchema = new Schema({
     requirements: [
         {
             name: String,
-            class_requirements: [
+            active_requirements: [
                 {
                     fullName: String,
                     abbr: [String],
-                    status: [
-                        {
-                            status_number: Number,
-                            classes_satisfying: Number
-                        }
-                    ]
+                    status: {
+                        needToTake: Number,
+                        planToTake: Number,
+                        taken: Number
+                    }
                 }
             ] 
         }

@@ -24,7 +24,6 @@ passport.use(
         User.findOne({googleId: profile.id}).then((currentUser) => {
             if(currentUser) { 
                 //user exists
-                console.log("User is: " + currentUser);
                 done(null, currentUser);
             } else {
                 //Get University Requirements
@@ -33,8 +32,8 @@ passport.use(
                         return {
                             fullName: e.fullName,
                             abbr: e.abbr,
+                            minCount: e.minCount,
                             status: {
-                                needToTake: 0,
                                 planToTake: 0,
                                 taken: 0
                             }
@@ -53,7 +52,6 @@ passport.use(
                             }                   
                         ]
                     }).save().then((newUser) => { 
-                        console.log("New user created: " + newUser);
                         done(null, newUser); 
                     });
                 });

@@ -12,6 +12,9 @@ const passport = require('passport');
 const bodyParser = require('body-parser');
 const PORT = 3000;
 
+//Uncomment to add requirementGroup
+// const addRequirement = require('./addRequirement');
+
 // load view engine
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');

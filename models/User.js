@@ -14,9 +14,9 @@ const userSchema = new Schema({
             active_requirements: [
                 {
                     fullName: String,
-                    abbr: [String],
+                    abbr: [],
+                    minCount: Number,
                     status: {
-                        needToTake: Number,
                         planToTake: Number,
                         taken: Number
                     }

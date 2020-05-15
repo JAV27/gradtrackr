@@ -1,6 +1,9 @@
 Welcome <%= user.username %>
 <br>
-Requirements: <%= user.requirements[0].name %>
+Requirements: 
+<% user.requirements.forEach(function(requirementGroup) { %>
+    <%= requirementGroup.name %>
+<% }); %>
 
 <form method="POST" action="/dashboard">
     <label for="major">Major: </label>

@@ -6,7 +6,11 @@ const requirementGroupSchema = new Schema({
     requirements: [
         {
             fullName: String,
-            abbr: [String]
+            abbr: [],
+            minCount: {
+                type: Number,
+                default: 1
+            }
         }
     ]
 });

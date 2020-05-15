@@ -1,5 +1,5 @@
 const router = require('express').Router();
-
+const User = require('../models/User');
 const authCheck = (req, res, next) => {
     if(!req.user) {
         res.redirect('/');
@@ -15,7 +15,9 @@ router.get('/', authCheck, function(req, res) {
 });
 
 router.post('/', function(req, res) {
-    console.log(req.body);
+    User.findByIdAndUpdate(req.user.id, {$set: {major: req.body.major}}, function() {
+        console.log("Updated user major!");
+    });
     res.redirect('/dashboard');
 });
 

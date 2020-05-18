@@ -4,6 +4,7 @@ const path = require('path');
 const ejs = require('ejs');
 const authRoutes = require('./routes/auth');
 const dashboardRoutes = require('./routes/dashboard');
+const semesterRoutes = require('./routes/semester');
 const passportSetup = require('./config/passportSetup');
 const mongoose = require('mongoose');
 const keys = require('./config/keys');
@@ -44,8 +45,11 @@ mongoose.connect(keys.mongodb.dbURI, function() {
 // set up auth route
 app.use('/auth', authRoutes);
 
-//set up dashboard ruote
+// set up dashboard ruote
 app.use('/dashboard', dashboardRoutes);
+
+// set up semesters route
+app.use('/semester', semesterRoutes);
 
 // get index route
 app.get('/', function(req, res) {

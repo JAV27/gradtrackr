@@ -1,0 +1,25 @@
+<form action="/semester/add" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" name="name">
+    <br>
+    <p>When did you take this semester?</p>
+    <label for="past">Past:</label>
+    <input type="radio" name="when" value="past">
+    <label for="present">Currently taking:</label>
+    <input type="radio" name="when" value="present">
+    <label for="future">Future:</label>
+    <input type="radio" name="when" value="future">
+    <br>
+    <button type="submit" value="Add Semester">Add Semester</button>
+</form>
+<form action="/semester/cancel" method="POST">
+    <button type="submit" value="Cancel">Cancel</button>
+</form>
+
+<% if(typeof nameError !== 'undefined' && nameError === "true") { %>
+    <p>Must fill in a name</p>
+<% } %>
+
+<% if(typeof whenError !== 'undefined' && whenError === "true") { %>
+    <p>Must choose when you took the class</p>
+<% } %>

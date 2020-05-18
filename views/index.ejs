@@ -9,6 +9,9 @@
 
         <% if(user) { %>
             <p>You are logged in!</p>
+            <a href="/dashboard">Go to your dashboard</a> 
+            <br>
+            <a href="/semester">Go to your semesters</a>
         <% } else { %>
             <a href="/auth/google">Sign In with Google</a>
         <% } %>

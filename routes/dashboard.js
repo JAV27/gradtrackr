@@ -1,14 +1,7 @@
 const router = require('express').Router();
 const User = require('../models/User');
 const RequirementGroup = require('../models/RequirementGroup');
-
-const authCheck = (req, res, next) => {
-    if(!req.user) {
-        res.redirect('/');
-    } else {
-        next();
-    }
-};
+const authCheck = require('../assets/authCheck');
 
 router.get('/', authCheck, function(req, res) {
     res.render('dashboard', {

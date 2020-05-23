@@ -10,7 +10,7 @@ Semester page!
 <div style="float: right;">
     <% user.requirements.forEach((requirement) => { %>
         <div>
-            <h1><%= requirement.name %></h1>
+            <h2><%= requirement.name %></h2>
             <ul>
                 <% requirement.active_requirements.forEach(areq => { %>
                     <li><%= areq.fullName %></li>

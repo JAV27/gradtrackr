@@ -23,7 +23,8 @@ const userSchema = new Schema({
                 }
             ] 
         }
-    ]
+    ],
+    semesters: [{type: mongoose.Schema.Types.ObjectId, ref: 'semester' }]
 });
 
 const User = mongoose.model('user', userSchema);

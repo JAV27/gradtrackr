@@ -1,5 +1,25 @@
 Semester page!
 <br>
+
+<ul>
+    <% user.semesters.forEach((semester) => { %>
+        <li><%= semester.name %></li>    
+    <% }); %>
+</ul>
+
+<div style="float: right;">
+    <% user.requirements.forEach((requirement) => { %>
+        <div>
+            <h1><%= requirement.name %></h1>
+            <ul>
+                <% requirement.active_requirements.forEach(areq => { %>
+                    <li><%= areq.fullName %></li>
+                <% }); %>
+            </ul>
+        </div>  
+    <% }); %>
+</div>
+
 <a href="/semester/add">Add a new semester</a>
 <% if(typeof success !== 'undefined' && success === "true") { %>
     <p>Added a new semester!</p>

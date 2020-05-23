@@ -1,11 +1,14 @@
 const router = require('express').Router();
 const authCheck = require('../assets/authCheck');
 const Semester = require('../models/Semester');
+const User = require('../models/User');
 
 router.get('/', authCheck, function(req, res) {
-    res.render('semester', {
-        user: req.user,
-        success: req.query.success
+    User.findById(req.user.id).populate('semesters').exec((err, userWithSemesters) => {
+        res.render('semester', {
+            user: userWithSemesters,
+            success: req.query.success
+        })
     });
 });
 
@@ -36,7 +39,11 @@ router.post('/add', function(req, res) {
             name: req.body.name,
             when: req.body.when
         }).save().then((newSemester) => {
-            console.log('Added a new semester!', newSemester);
+            User.findById(req.user.id, function(err, user) {
+                user.semesters.push(newSemester);
+                user.save();
+            });
+
             res.redirect('/semester?success=true');
         });
     } 

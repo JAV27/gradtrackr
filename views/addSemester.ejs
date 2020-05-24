@@ -1,3 +1,9 @@
+<head>
+    <meta charset="utf-8">
+    <title>GradTrackr</title>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
 <form action="/semester/add" method="POST">
     <label for="name">Name:</label>
     <input type="text" name="name">
@@ -9,6 +15,10 @@
     <input type="radio" name="when" value="present">
     <label for="future">Future:</label>
     <input type="radio" name="when" value="future">
+    <br>
+    <br>
+    <button type="button" class="addClass">Add a class</button>
+    <br>
     <br>
     <button type="submit" value="Add Semester">Add Semester</button>
 </form>
@@ -23,3 +33,13 @@
 <% if(typeof whenError !== 'undefined' && whenError === "true") { %>
     <p>Must choose when you took the class</p>
 <% } %>
+
+<script>
+    $('document').ready(function() {
+
+        $('.addClass').on('click', function() {
+            console.log('hello world');
+        });
+
+    });
+</script>

@@ -13,8 +13,15 @@ const passport = require('passport');
 const bodyParser = require('body-parser');
 const PORT = 3000;
 
-//Uncomment to add requirementGroup
+// Uncomment to add requirementGroup
 // const addRequirement = require('./addRequirement');
+
+// Uncomment to add classes
+// const classes = require('./addClass');
+// const Class = require('./models/Class');
+// for(let i=0; i<classes.length; i++) {
+//     new Class(classes[i]).save().then(() => console.log("new class added!"));
+// }
 
 // load view engine
 app.set('views', path.join(__dirname, 'views'));

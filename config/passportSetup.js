@@ -22,6 +22,7 @@ passport.use(
     }, function(accessToken, refreshToken, profile, done) {
         //check if user exists
         User.findOne({googleId: profile.id}).then((currentUser) => {
+            console.log(currentUser);
             if(currentUser) { 
                 //user exists
                 done(null, currentUser);

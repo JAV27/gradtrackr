@@ -1,0 +1,13 @@
+Add a class!
+
+<form action="/semester/<%= semId %>/add/class" method="POST">
+    <select name="class">
+        <option value=""></option>
+        <% classes.forEach(c => { %>
+            <option value="<%= c.id %>"><%= c.name%></option>
+        <% }); %>
+    </select>
+    <button type="submit">Add This Class</button>
+</form>
+
+<a href="/semester/edit/<%= semId %>">Cancel</a>

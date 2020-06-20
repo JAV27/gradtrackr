@@ -4,6 +4,7 @@ Semester page!
 <ul>
     <% user.semesters.forEach((semester) => { %>
         <li><%= semester.name %></li>    
+        <a href="/semester/edit/<%= semester.id%>">Edit</a>
     <% }); %>
 </ul>
 

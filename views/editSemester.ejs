@@ -1,0 +1,23 @@
+Edit your semester!
+
+<form action="/semester/edit/<%= semester.id %>" method="POST">
+    <label for="name">Name</label>
+    <input type="text" value="<%= semester.name %>" name="name">
+    <br>
+    <p>When did you take this semester?</p>
+    <label for="past">Past:</label>
+    <input type="radio" name="when" value="past" <%= (semester.when === "past") ? 'checked' : '' %>>
+    <label for="present">Currently taking:</label>
+    <input type="radio" name="when" value="present" <%= (semester.when === "present") ? 'checked' : '' %>>
+    <label for="future">Future:</label>
+    <input type="radio" name="when" value="future" <%= (semester.when === "future") ? 'checked' : '' %>>
+    <br>
+    <label for="classes">Classes</label>
+    <ul>
+        <% semester.classes_taken.forEach(c => { %>
+            <li><%= c %></li>
+        <% }); %>
+    </ul>
+    <a href="/semester/<%= semester.id %>/add/class">Add Class</a>
+    <input type="submit" value="Submit Changes">
+</form>
